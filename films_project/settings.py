@@ -14,6 +14,8 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
+import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,7 +29,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["films-project.onrender.com" , "localhost"]
+ALLOWED_HOSTS = ["films-project.onrender.com", "localhost"]
 
 # Application definition
 
@@ -71,18 +73,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "films_project.wsgi.application"
 
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "defaultdb",
-        'USER': os.getenv("CUSTOM_USER"),
-        'PASSWORD': "AVNS_3mEQLLyXMMavT-Pnfdj",
-        'HOST': "db-postgresql-nyc1-48055-do-user-17228234-0.b.db.ondigitalocean.com",
-        'PORT': "25060",
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
+DATABASES["default"] = dj_database_url.parse(os.getenv("DATABASE_URL"))
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -122,3 +120,5 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
