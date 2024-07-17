@@ -11,7 +11,7 @@ bot = telebot.TeleBot(os.getenv("TELEGRAM_BOT_KEY"))
 
 @bot.message_handler(content_types=['text'])
 def films(message):
-    response = requests.get("http://127.0.0.1:8002/films/")
+    response = requests.get("https://films-project.onrender.com/films/")
     if message.text == "/start":
         bot.send_message(message.from_user.id,
                          f"Greetings, {message.from_user.username}. Please send the command /films to get a list of films.")
