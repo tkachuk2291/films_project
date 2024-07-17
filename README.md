@@ -1,11 +1,11 @@
 # films_project_api_service
 ### Api service for show top 5 films  
 
-### Live b endpoints 
+### Live film  endpoint 
 
 follow for https://films-project.onrender.com/films/
 
-### Telegram bot endpoints 
+### Telegram bot film  endpoints 
 https://t.me/films2291_bot
 
 ###  Install PostgresSQL and create db
@@ -46,8 +46,12 @@ python manage.py migrate
 python manage.py runserver 8002 
 ```
 
-### Getting endpoints
+### Getting endpoints Live
 follow for https://films-project.onrender.com/films/
+### Local
+http://127.0.0.1:8002/
+
+
 
 
 
